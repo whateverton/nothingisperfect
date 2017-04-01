@@ -22,6 +22,11 @@ public class SentenceObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position -= new Vector3(0f, localSpeed, 0f);
+
+        if(!isVisible())
+        {
+            //Destroy(gameObject);
+        }
 	}
 
     public void Clicked()
@@ -44,5 +49,25 @@ public class SentenceObject : MonoBehaviour {
         }
         
         GetComponent<Button>().colors = colors;
+    }
+
+    private bool isVisible()
+    {
+        Rect screenBounds = new Rect(0f, 0f, Screen.width, Screen.height); // Screen space bounds (assumes camera renders across the entire screen)
+        Vector3[] objectCorners = new Vector3[4];
+        ((RectTransform)transform).GetWorldCorners(objectCorners);
+
+        int visibleCorners = 0;
+        Vector3 tempScreenSpaceCorner; // Cached
+        for (var i = 0; i < objectCorners.Length; i++) // For each corner in rectTransform
+        {
+            tempScreenSpaceCorner = Camera.main.WorldToScreenPoint(objectCorners[i]); // Transform world space position of corner to screen space
+            if (screenBounds.Contains(tempScreenSpaceCorner)) // If the corner is inside the screen
+            {
+                visibleCorners++;
+            }
+        }
+
+        return (visibleCorners > 0);
     }
 }
