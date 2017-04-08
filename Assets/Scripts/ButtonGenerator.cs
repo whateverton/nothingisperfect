@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ButtonGenerator : MonoBehaviour {
     public static ButtonGenerator instance;
-
+    
     public float timeBetweenSentence;
-    public GameObject sentencePrefab;
+    public bool onceAtATime;
 
     GameObject canvas;
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
         if (instance != null)
         {
@@ -34,16 +34,33 @@ public class ButtonGenerator : MonoBehaviour {
     {
         while (true)
         {
-            yield return new WaitForSeconds(timeBetweenSentence);
+            GameObject currentSentence = SentencePool.instance.ActivateObject();
+            Rect sentenceRect = ((RectTransform)currentSentence.transform).rect;
 
-            GameObject currentSentence = Instantiate(sentencePrefab,canvas.transform) as GameObject;
-            
-            float posX = Random.Range(0, Screen.width);
-            currentSentence.transform.localScale = new Vector3(1f, 1f, 1f);
-            Vector3 newPosition = new Vector3(posX, 300f, 0f);
+            float posX;
+            if (onceAtATime)
+                posX = 0; 
+            else
+                posX = Random.Range(-((RectTransform)canvas.transform).rect.width / 2 + sentenceRect.width, ((RectTransform)canvas.transform).rect.width / 2 - sentenceRect.width);
 
-            ((RectTransform)currentSentence.transform).position = Camera.main.ScreenToWorldPoint(newPosition);
+            Vector3 objectPosition = ((RectTransform)currentSentence.transform).position;//Camera.main.ScreenToWorldPoint(newPosition);
+            ((RectTransform)currentSentence.transform).position = new Vector3(posX * canvas.transform.localScale.x, 300 * canvas.transform.localScale.y, objectPosition.z * canvas.transform.localScale.z);
             currentSentence.SetActive(true);
+
+            if (!onceAtATime)
+            {
+                if (GameControl.instance.rightSelected)
+                    yield return new WaitForSeconds(timeBetweenSentence / GameControl.instance.slowMotionFactor);
+                else
+                    yield return new WaitForSeconds(timeBetweenSentence);
+            }
+            else
+            {
+                while (currentSentence.activeSelf)
+                {
+                    yield return new WaitForSeconds(1f);
+                }
+            }
         }
     }
 }

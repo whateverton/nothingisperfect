@@ -11,7 +11,7 @@ public class SentenceObject : MonoBehaviour {
     private float localSpeed;
 
     // Use this for initialization
-    void Start () {
+    void OnEnable () {
         SentenceStruct sentence = SentenceManager.instance.GetRandomSentence();
         gameObject.GetComponentInChildren<Text>().text = sentence.text;
         right = (sentence.type == 0) ? false : true;
@@ -21,11 +21,14 @@ public class SentenceObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position -= new Vector3(0f, localSpeed, 0f);
+        if(!GameControl.instance.rightSelected)
+            transform.position -= new Vector3(0f, localSpeed, 0f);
+        else
+            transform.position -= new Vector3(0f, localSpeed*GameControl.instance.slowMotionFactor, 0f);
 
-        if(!isVisible())
+        if (!isVisible())
         {
-            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 	}
 
@@ -39,6 +42,8 @@ public class SentenceObject : MonoBehaviour {
             colors.highlightedColor = GameControl.instance.rightColor;
             colors.normalColor = GameControl.instance.rightColor;
             colors.pressedColor = GameControl.instance.rightColor;
+
+            GameControl.instance.rightSelected = true;
         }
         else
         {

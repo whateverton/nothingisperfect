@@ -27,7 +27,7 @@ public class SentenceManager : MonoBehaviour {
     SentenceStruct[] loadedSentences;
 
     // Use this for initialization
-    void Start () {
+    void OnEnable () {
         if (instance != null)
         {
             Destroy(gameObject);

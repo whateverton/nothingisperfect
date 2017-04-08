@@ -20,12 +20,14 @@ public class GameControl : MonoBehaviour {
     public Difficulty difficulty = Difficulty.EASY;
 
     public float speed = 1f;
+    public float slowMotionFactor;
 
+    public bool rightSelected = false;
 
     AudioSource sound;
 
     // Use this for initialization
-    void Start () {
+    void OnEnable () {
 		if(instance == null)
         {
             instance = this;
