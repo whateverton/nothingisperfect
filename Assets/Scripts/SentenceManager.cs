@@ -5,10 +5,10 @@ using System.Xml;
 
 public enum SentenceType
 {
-    WRONG,
-    CORRECT_1,
-    CORRECT_2,
-    CORRECT_3,
+    WRONG,      // Well, not correct
+    CORRECT_1,  // Started in the past and are still going on
+    CORRECT_2,  // Happened in an undefined time in the past
+    CORRECT_3,  // Things that just happened
 }
 
 public class SentenceStruct
@@ -16,6 +16,7 @@ public class SentenceStruct
     public string text;
     public SentenceType type;
     public bool used;
+    public string info;
 }
 
 public class SentenceManager : MonoBehaviour {

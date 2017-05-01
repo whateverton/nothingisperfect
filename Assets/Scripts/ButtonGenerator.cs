@@ -35,6 +35,8 @@ public class ButtonGenerator : MonoBehaviour {
         while (true)
         {
             GameObject currentSentence = SentencePool.instance.ActivateObject();
+            currentSentence.GetComponent<SentenceObject>().ActivateSentence();
+
             Rect sentenceRect = ((RectTransform)currentSentence.transform).rect;
 
             float posX;

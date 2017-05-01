@@ -22,6 +22,8 @@ public class GameControl : MonoBehaviour {
     public float speed = 1f;
     public float slowMotionFactor;
 
+    public bool tutorial = false;
+
     public bool rightSelected = false;
 
     AudioSource sound;

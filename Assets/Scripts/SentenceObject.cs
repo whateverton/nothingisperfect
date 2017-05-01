@@ -11,8 +11,13 @@ public class SentenceObject : MonoBehaviour {
     private float localSpeed;
 
     // Use this for initialization
-    void OnEnable () {
-        SentenceStruct sentence = SentenceManager.instance.GetRandomSentence();
+    public void ActivateSentence () {
+        SentenceStruct sentence;
+        if (GameControl.instance.tutorial)
+            sentence = TutorialControl.instance.GetNextSentence();
+        else
+            sentence = SentenceManager.instance.GetRandomSentence();
+
         gameObject.GetComponentInChildren<Text>().text = sentence.text;
         right = (sentence.type == 0) ? false : true;
 
