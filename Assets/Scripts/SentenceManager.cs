@@ -87,6 +87,35 @@ public class SentenceManager : MonoBehaviour {
             return null;
     }
 
+    public SentenceStruct GetSentenceByType(SentenceType type)
+    {
+        int index = -1;
+        int startIndex = -1;
+
+        do
+        {
+            ++index;
+
+            if (loadedSentences[index].type == type && startIndex == -1)
+                startIndex = index;
+
+            if (index == loadedSentences.Length)
+            {
+                ResetSentences();
+
+                index = startIndex - 1;
+            }
+        } while (loadedSentences[index].used || (loadedSentences[index].type != type));
+
+        if (loadedSentences[index] != null)
+        {
+            loadedSentences[index].used = true;
+            return loadedSentences[index];
+        }
+        else
+            return null;
+    }
+
     void ResetSentences()
     {
         foreach(SentenceStruct sentence in loadedSentences)

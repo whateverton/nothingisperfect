@@ -1,31 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class SentenceObject : MonoBehaviour {
     public bool right;
     public string sentence;
     public float sizeFactor;
 
-    private float localSpeed;
+    protected float localSpeed;
 
     // Use this for initialization
-    public void ActivateSentence () {
-        SentenceStruct sentence;
-        if (GameControl.instance.tutorial)
-            sentence = TutorialControl.instance.GetNextSentence();
-        else
-            sentence = SentenceManager.instance.GetRandomSentence();
+    public virtual void ActivateSentence () {
+        SentenceStruct sentence = SentenceManager.instance.GetRandomSentence();
 
         gameObject.GetComponentInChildren<Text>().text = sentence.text;
         right = (sentence.type == 0) ? false : true;
 
         localSpeed = GameControl.instance.speed * (sizeFactor/sentence.text.Length);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    public virtual void Update () {
         if(!GameControl.instance.rightSelected)
             transform.position -= new Vector3(0f, localSpeed, 0f);
         else
@@ -33,6 +29,9 @@ public class SentenceObject : MonoBehaviour {
 
         if (!isVisible())
         {
+            if (GameControl.instance.tutorial)
+                TutorialControl.instance.currentSentence = null;
+
             gameObject.SetActive(false);
         }
 	}
