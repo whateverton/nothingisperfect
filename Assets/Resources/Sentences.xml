@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <SentencesData>
-  <s0000 type="0">I am a sentence</s0000>
+  <se0000 type="0">I am a sentence</se0000>
+  <se0001 type="0">My name is William</se0001>
+  <se0002 type="0">I don't have a car</se0002>
+  <se0003 type="0">Did you bought some fruits?</se0003>
+  <se0004 type="0">I know everything!</se0004>
   
   <s0001 type="1">I have invented a sentence</s0001>
   <s0002 type="1">I have thought about it for two hours.</s0002>

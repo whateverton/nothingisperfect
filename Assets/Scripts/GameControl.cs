@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Difficulty{
      EASY
@@ -25,6 +26,8 @@ public class GameControl : MonoBehaviour {
     public bool tutorial = false;
 
     public bool rightSelected = false;
+
+    public Text scoreText;
 
     AudioSource sound;
 
@@ -60,5 +63,21 @@ public class GameControl : MonoBehaviour {
         sound.Stop();
         sound.clip = wrongSound;
         sound.Play();
+    }
+
+    public void IncreaseScore()
+    {
+        int score = int.Parse(scoreText.text);
+        if(score < 99)
+            ++score;
+        scoreText.text = score.ToString("00");
+    }
+
+    public void DecreaseScore()
+    {
+        int score = int.Parse(scoreText.text);
+        if(score > 0)
+            --score;
+        scoreText.text = score.ToString("00");
     }
 }

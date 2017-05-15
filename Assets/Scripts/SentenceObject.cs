@@ -10,6 +10,13 @@ public class SentenceObject : MonoBehaviour {
 
     protected float localSpeed;
 
+    private bool clicked = false;
+
+    public void OnEnable()
+    {
+        clicked = false;
+    }
+
     // Use this for initialization
     public virtual void ActivateSentence () {
         SentenceStruct sentence = SentenceManager.instance.GetRandomSentence();
@@ -22,9 +29,9 @@ public class SentenceObject : MonoBehaviour {
 
     // Update is called once per frame
     public virtual void Update () {
-        if(!GameControl.instance.rightSelected)
+        /*if(!GameControl.instance.rightSelected)
             transform.position -= new Vector3(0f, localSpeed, 0f);
-        else
+        else*/
             transform.position -= new Vector3(0f, localSpeed*GameControl.instance.slowMotionFactor, 0f);
 
         if (!isVisible())
@@ -38,30 +45,40 @@ public class SentenceObject : MonoBehaviour {
 
     public void Clicked()
     {
-        var colors = GetComponent<Button>().colors;
-
-        if (right)
+        if (!clicked)
         {
-            GameControl.instance.PlayRight();
-            colors.highlightedColor = GameControl.instance.rightColor;
-            colors.normalColor = GameControl.instance.rightColor;
-            colors.pressedColor = GameControl.instance.rightColor;
+            var colors = GetComponent<Button>().colors;
 
-            GameControl.instance.rightSelected = true;
+            clicked = true;
+
+            if (right)
+            {
+                GameControl.instance.PlayRight();
+                colors.highlightedColor = GameControl.instance.rightColor;
+                colors.normalColor = GameControl.instance.rightColor;
+                colors.pressedColor = GameControl.instance.rightColor;
+
+                GameControl.instance.rightSelected = true;
+                GameControl.instance.IncreaseScore();
+            }
+            else
+            {
+                GameControl.instance.PlayWrong();
+                colors.highlightedColor = GameControl.instance.wrongColor;
+                colors.normalColor = GameControl.instance.wrongColor;
+                colors.pressedColor = GameControl.instance.wrongColor;
+
+                GameControl.instance.DecreaseScore();
+            }
+
+            //GetComponent<Button>().colors = colors;
         }
-        else
-        {
-            GameControl.instance.PlayWrong();
-            colors.highlightedColor = GameControl.instance.wrongColor;
-            colors.normalColor = GameControl.instance.wrongColor;
-            colors.pressedColor = GameControl.instance.wrongColor;
-        }
-        
-        GetComponent<Button>().colors = colors;
     }
 
     private bool isVisible()
     {
+        bool visible = true;
+
         Rect screenBounds = new Rect(0f, 0f, Screen.width, Screen.height); // Screen space bounds (assumes camera renders across the entire screen)
         Vector3[] objectCorners = new Vector3[4];
         ((RectTransform)transform).GetWorldCorners(objectCorners);
@@ -77,6 +94,21 @@ public class SentenceObject : MonoBehaviour {
             }
         }
 
-        return (visibleCorners > 0);
+        if(visibleCorners == 0)
+        {
+            visible = false;
+
+            if (right && !clicked)
+            {
+                GameControl.instance.DecreaseScore();
+            }
+            else if(!right && !clicked)
+            {
+                GameControl.instance.IncreaseScore();
+            }
+            
+            clicked = false;
+        }
+        return visible;
     }
 }
