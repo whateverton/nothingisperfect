@@ -8,6 +8,9 @@ public class SentenceObject : MonoBehaviour {
     public string sentence;
     public float sizeFactor;
 
+    public GameObject optionButtons;
+    private GameObject options;
+
     protected float localSpeed;
 
     private bool clicked = false;
@@ -29,9 +32,9 @@ public class SentenceObject : MonoBehaviour {
 
     // Update is called once per frame
     public virtual void Update () {
-        /*if(!GameControl.instance.rightSelected)
+        if(!GameControl.instance.rightSelected)
             transform.position -= new Vector3(0f, localSpeed, 0f);
-        else*/
+        else
             transform.position -= new Vector3(0f, localSpeed*GameControl.instance.slowMotionFactor, 0f);
 
         if (!isVisible())
@@ -60,6 +63,12 @@ public class SentenceObject : MonoBehaviour {
 
                 GameControl.instance.rightSelected = true;
                 GameControl.instance.IncreaseScore();
+
+                options = Instantiate(optionButtons, transform);
+                options.transform.localScale = new Vector3(1f, 1f, 1f);
+                ((RectTransform)options.transform).localPosition = new Vector3(0f, 0f, 0f);
+
+                //options.transform.localPosition = transform.localPosition;
             }
             else
             {
@@ -106,7 +115,13 @@ public class SentenceObject : MonoBehaviour {
             {
                 GameControl.instance.IncreaseScore();
             }
-            
+
+            if (options != null)
+            {
+                Destroy(options);
+                options = null;
+            }
+
             clicked = false;
         }
         return visible;
