@@ -9,6 +9,8 @@ public class InformationControl : MonoBehaviour {
 
     static public InformationControl instance;
 
+    Animator infoAnimator;
+
 	public void OnEnable()
     {
         if(instance != null)
@@ -17,6 +19,8 @@ public class InformationControl : MonoBehaviour {
         }
 
         instance = this;
+
+        infoAnimator = GetComponent<Animator>();
 
         helpText = GetComponentInChildren<Text>();
         gameObject.SetActive(false);

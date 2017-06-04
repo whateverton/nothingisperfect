@@ -8,11 +8,12 @@ public class OptionControl : MonoBehaviour {
 
     private GameObject[] options;
     private float[] finalPosistion;
+    private float initialPos;
 
-	// Use this for initialization
-	void OnEnable ()
+    // Use this for initialization
+    void OnEnable ()
     {
-        float initialPos = transform.GetChild(0).localPosition.y;
+        initialPos = transform.GetChild(0).localPosition.y;
 
         options = new GameObject[3];
         finalPosistion = new float[3];
@@ -46,5 +47,20 @@ public class OptionControl : MonoBehaviour {
             case SentenceType.CORRECT_3:
             break;
         }
+
+        options[0].transform.DOLocalMoveY(initialPos, interval).SetEase(Ease.InBounce);
+        options[1].transform.DOLocalMoveY(initialPos, interval).SetEase(Ease.InBounce);
+        options[2].transform.DOLocalMoveY(initialPos, interval).SetEase(Ease.InBounce);
+
+        StartCoroutine("RemoveOptions");
+    }
+
+    IEnumerator RemoveOptions()
+    {
+        yield return new WaitForSeconds(interval+0.25f);
+
+        Destroy(gameObject);
+
+        GameControl.instance.rightSelected = false;
     }
 }
