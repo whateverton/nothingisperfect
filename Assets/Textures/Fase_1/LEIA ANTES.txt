@@ -1,0 +1,22 @@
+A gente pode animar nesse esquema, mas se der algum problema
+a gente utiliza a versão trimmada
+
+vamos conversando ver como vai saindo a animação, voce n precisa
+usar esse fundo, pode usar a lousa se quiser, vamo ver
+
+
+LEGENDA:
+
+Trimm= significa cortado (não esta enquadrado), voce vai entender...
+vantagem é que não ocupa a tela toda se for preciso clicar em algo
+
+N_00 = Texto do narrador, cada numero é relativo ao slide,
+N_01 slide 1, N_02 Slide 2...
+
+T0_01 = Texto do slide, sendo o primeiro numero relacionado
+ao numero do slide e o em seguida a ordem dos textos
+sendo por exempo T1_01, T1_02, T1_03, T2_01, T2_02...
+
+Em todos os slides menos o Ultimo vai ir o Click Continue
+e o Skip Animation
+

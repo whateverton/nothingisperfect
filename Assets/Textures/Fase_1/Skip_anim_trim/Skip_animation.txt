@@ -1,0 +1,5 @@
+Skip 0 ao 9 com 0,1 segundo
+Skip 10 com 1 segundo
+
+Skip 0 é o mesmo que o 10, mas mantive pra voce
+saber que o 0 é onde começa
