@@ -1,0 +1,17 @@
+Eu criei esse Skip over para pular os slides, 1 por um
+enquanto o click to continue seria cada iteração
+podemos criar um "botão" invisivel em cima da animação talvez
+para criar o efeito,
+
+Existem 2 maneiras de realizar essa animação
+1- ela sempre estará animada
+2- será animada quando passar o mouse em cima,
+ou seja, ela irá manter o primeiro sprite até o mouse
+passar em cima
+
+Skip 0 ao 9 com 0,1 segundo
+Skip 10 com 1 segundo
+
+Skip 0 é o mesmo que o 10, mas mantive pra voce
+saber que o 0 é onde começa
+
