@@ -62,5 +62,7 @@ public class OptionControl : MonoBehaviour {
         Destroy(gameObject);
 
         GameControl.instance.rightSelected = false;
+
+        SentencePool.instance.ShowText();
     }
 }

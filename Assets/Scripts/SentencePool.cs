@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SentencePool : MonoBehaviour {
 
@@ -60,5 +61,34 @@ public class SentencePool : MonoBehaviour {
         Debug.LogError("Excedeu o numero de objetos da pool");
         objectList[0].SetActive(true); //Retorna o primeiro objeto da lista só pra evitar um retorno nulo 
         return objectList[0];
+    }
+
+    public void HideText(string show)
+    {
+        Text[] texts = GetComponentsInChildren<Text>();
+
+        foreach (Text t in texts)
+        {
+            Color cor = t.color;
+
+            if (t.text != show)
+                cor.a = 0f;
+
+            t.color = cor;
+        }
+    }
+
+    public void ShowText()
+    {
+        Text[] texts = GetComponentsInChildren<Text>();
+
+        foreach (Text t in texts)
+        {
+            Color cor = t.color;
+            
+            cor.a = 0xFF;
+
+            t.color = cor;
+        }
     }
 }

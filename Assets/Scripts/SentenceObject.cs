@@ -25,9 +25,18 @@ public class SentenceObject : MonoBehaviour {
         SentenceStruct sentence = SentenceManager.instance.GetRandomSentence();
 
         gameObject.GetComponentInChildren<Text>().text = sentence.text;
+        this.sentence = sentence.text;
         right = (sentence.type == 0) ? false : true;
 
         localSpeed = GameControl.instance.speed * (sizeFactor/sentence.text.Length);
+
+        // Hide if needed
+        if (GameControl.instance.rightSelected)
+        {
+            Color cor = gameObject.GetComponentInChildren<Text>().color;
+            cor.a = 0f;
+            gameObject.GetComponentInChildren<Text>().color = cor;
+        }
     }
 
     // Update is called once per frame
@@ -48,7 +57,7 @@ public class SentenceObject : MonoBehaviour {
 
     public void Clicked()
     {
-        if (!clicked)
+        if (!clicked && !GameControl.instance.rightSelected)
         {
             var colors = GetComponent<Button>().colors;
 
@@ -56,6 +65,8 @@ public class SentenceObject : MonoBehaviour {
 
             if (right)
             {
+                SentencePool.instance.HideText(sentence);
+
                 GameControl.instance.PlayRight();
                 colors.highlightedColor = GameControl.instance.rightColor;
                 colors.normalColor = GameControl.instance.rightColor;
@@ -67,7 +78,7 @@ public class SentenceObject : MonoBehaviour {
                 options = Instantiate(optionButtons, transform);
                 options.transform.localScale = new Vector3(1f, 1f, 1f);
                 ((RectTransform)options.transform).localPosition = new Vector3(0f, 0f, 0f);
-
+                
                 //options.transform.localPosition = transform.localPosition;
             }
             else

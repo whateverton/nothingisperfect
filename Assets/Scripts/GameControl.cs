@@ -20,6 +20,8 @@ public class GameControl : MonoBehaviour {
 
     public Difficulty difficulty = Difficulty.EASY;
 
+    public int maxTime;
+
     public float speed = 1f;
     public float slowMotionFactor;
 
@@ -28,6 +30,7 @@ public class GameControl : MonoBehaviour {
     public bool rightSelected = false;
 
     public Text scoreText;
+    public Text timeText;
 
     AudioSource sound;
 
@@ -44,6 +47,7 @@ public class GameControl : MonoBehaviour {
         }
 
         sound = GetComponent<AudioSource>();
+        StartCoroutine("Counter");
     }
 	
 	// Update is called once per frame
@@ -79,5 +83,28 @@ public class GameControl : MonoBehaviour {
         if(score > 0)
             --score;
         scoreText.text = score.ToString("00");
+    }
+
+    IEnumerator Counter()
+    {
+        while (true)
+        {
+            int time;
+
+            yield return new WaitForSeconds(1f);
+
+            time = int.Parse(timeText.text);
+            if (time < maxTime)
+                ++time;
+            else
+                EndGame();
+
+            timeText.text = time.ToString("00");
+        }
+    }
+
+    void EndGame()
+    {
+
     }
 }

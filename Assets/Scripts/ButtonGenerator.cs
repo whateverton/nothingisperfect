@@ -43,7 +43,7 @@ public class ButtonGenerator : MonoBehaviour {
             if (onceAtATime)
                 posX = 0; 
             else
-                posX = Random.Range(-((RectTransform)canvas.transform).rect.width / 2 + sentenceRect.width, ((RectTransform)canvas.transform).rect.width / 2 - sentenceRect.width);
+                posX = Random.Range(-((RectTransform)canvas.transform).rect.width / 2 + sentenceRect.width/2, ((RectTransform)canvas.transform).rect.width / 2 - sentenceRect.width/2);
 
             Vector3 objectPosition = ((RectTransform)currentSentence.transform).position;//Camera.main.ScreenToWorldPoint(newPosition);
             ((RectTransform)currentSentence.transform).position = new Vector3(posX * canvas.transform.localScale.x, 300 * canvas.transform.localScale.y, objectPosition.z * canvas.transform.localScale.z);

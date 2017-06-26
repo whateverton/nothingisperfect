@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ButtonGenerator">
+    <Position X="3.75" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAQIAAAAAAAAAAAAAAAAAAACAABAAAAAAAAAAAIACAA=</HashCode>
+      <FileName>Assets\Scripts\ButtonGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CounterControl">
+    <Position X="7" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAEAAAAAEAAgACAAQAAAIAEAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\CounterControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameControl">
+    <Position X="10.25" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQgKAABAIQAAQgAAAQCAAAAAABEIQEIAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\GameControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InformationControl">
+    <Position X="6.75" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACEAABAAAAIAAAAAAAAAABAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\InformationControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MenuControl">
+    <Position X="3.75" Y="3.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAACIAAABAAQAQAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\MenuControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OptionControl">
+    <Position X="12.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAQAAAAABAAQAAAAAAgACAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\OptionControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceStruct">
+    <Position X="7" Y="3.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAIQAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SentenceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceManager">
+    <Position X="9.25" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QAQAQAAAAAIAAAAIAAAAAAAAAABAIAAAAAAIAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\SentenceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceObject">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IEQABAAAAAAAAQAAABAAAAAAAAAAACAAAAAgAAIAqAA=</HashCode>
+      <FileName>Assets\Scripts\SentenceObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentencePool">
+    <Position X="3.75" Y="6" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAAgAAABAAAAAAAACAQAACAA=</HashCode>
+      <FileName>Assets\Scripts\SentencePool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SentenceTutorial">
+    <Position X="0.5" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SentenceTutorial.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TutorialControl">
+    <Position X="12.5" Y="3.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>QQQAQAAAAEAAAABAAAAhAAAAAABAAAAgAAAAAIQACAA=</HashCode>
+      <FileName>Assets\Scripts\TutorialControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
