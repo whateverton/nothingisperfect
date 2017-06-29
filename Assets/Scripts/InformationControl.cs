@@ -11,6 +11,10 @@ public class InformationControl : MonoBehaviour {
 
     Animator infoAnimator;
 
+    AudioSource audioSource;
+
+    public AudioClip closeInfo;
+
 	public void OnEnable()
     {
         if(instance != null)
@@ -20,6 +24,7 @@ public class InformationControl : MonoBehaviour {
 
         instance = this;
 
+        audioSource = GetComponent<AudioSource>();
         infoAnimator = GetComponent<Animator>();
 
         helpText = GetComponentInChildren<Text>();

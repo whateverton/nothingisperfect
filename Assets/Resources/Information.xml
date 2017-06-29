@@ -4,15 +4,20 @@
   <info1 type="0">This sentence is not in the Present Perfect Tense.
 Don't click it.
 Let it pass.</info1>
+  <inf8 type="0">Don't you dare! This is not Present Perfect.</inf8>
   
   <info2 type="1">There you go, Present Perfect.
 This is the kind that started in the past and is still going on.
 
 Go ahead and click it.</info2>
+  <info5 type="1">We use the present perfect for an action in the past with a result now.</info5>
   
-  <info3 type="2">You might want to click there.
-This happened in an undefined time in the past.</info3>
-  
-  <info4 type="3">Things that happend a short time ago might appear with a "just", like this one.
-As you thought, Present Perfect.</info4>
+  <info3 type="2">Things that happend a short time ago might appear with a "just", like this one.
+As you thought, Present Perfect.</info3>
+  <info6 type="2">This Present Perfect represents an idea of time.
+Something that happened in a near past.</info6>
+
+  <info4 type="3">You might want to click there.
+This happened in an undefined time in the past.</info4>
+  <info7 type="3">Here is something about a time from the past until now</info7>
 </InformationData>

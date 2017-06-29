@@ -88,6 +88,8 @@ public class SentenceObject : MonoBehaviour {
                 colors.normalColor = GameControl.instance.wrongColor;
                 colors.pressedColor = GameControl.instance.wrongColor;
 
+                ++GameControl.instance.fullWrong;
+
                 GameControl.instance.DecreaseScore();
             }
 
@@ -120,11 +122,13 @@ public class SentenceObject : MonoBehaviour {
 
             if (right && !clicked)
             {
+                ++GameControl.instance.rightPassed;
                 GameControl.instance.DecreaseScore();
             }
             else if(!right && !clicked)
             {
                 GameControl.instance.IncreaseScore();
+                ++GameControl.instance.wrongPassed;
             }
 
             if (options != null)

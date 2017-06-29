@@ -19,6 +19,16 @@ public class TutorialControl : MonoBehaviour
     [HideInInspector]
     public GameObject currentSentence;
 
+    public int minErrorThreshold;
+    public int maxErrorThreshold;
+
+    private bool growingRight = true;
+    private bool downingRight = false;
+
+    private bool showInfo = true;
+
+    public int rightAmount = 0;
+
     private int globalIndex = 0;
 
     void OnEnable()
@@ -40,9 +50,11 @@ public class TutorialControl : MonoBehaviour
 
     public void Update()
     {
+        CheckErrors();
+
         if(currentSentence != null)
         {
-            if((currentSentence.transform.position.y < 0) && !alreadyPaused)
+            if((currentSentence.transform.position.y < 0) && !alreadyPaused && showInfo)
             {
                 tutorialPause = true;
                 alreadyPaused = true;
@@ -128,5 +140,27 @@ public class TutorialControl : MonoBehaviour
         alreadyPaused = false;
 
         return SentenceManager.instance.GetRandomSentence();
+    }
+
+    private void CheckErrors()
+    {
+        if(showInfo && growingRight && rightAmount > maxErrorThreshold)
+        {
+            showInfo = false;
+        }
+        else if(!showInfo && growingRight && rightAmount < maxErrorThreshold)
+        {
+            growingRight = false;
+            downingRight = true;
+        }
+        else if(!showInfo && downingRight && rightAmount < minErrorThreshold)
+        {
+            showInfo = true;
+        }
+        else if(showInfo && downingRight && rightAmount > minErrorThreshold)
+        {
+            growingRight = true;
+            downingRight = false;
+        }
     }
 }

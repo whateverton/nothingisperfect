@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuControl : MonoBehaviour {
     Animator animator;
+    public AudioSource audioSource;
+    public AudioClip closing;
 
     void OnEnable()
     {
@@ -21,6 +23,7 @@ public class MenuControl : MonoBehaviour {
 
     public void LoadScene(string name)
     {
+        audioSource.clip = closing;
         animator.SetBool("Opened", false);
 
         for (int i = 0; i < transform.childCount; ++i)
@@ -28,11 +31,13 @@ public class MenuControl : MonoBehaviour {
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
+        audioSource.Play();
         StartCoroutine("LoadSceneCoroutine", name);
     }
 
     public void QuitGame()
     {
+        audioSource.clip = closing;
         animator.SetBool("Opened", false);
 
         for (int i = 0; i < transform.childCount; ++i)
@@ -40,6 +45,7 @@ public class MenuControl : MonoBehaviour {
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
+        audioSource.Play();
         StartCoroutine("QuitGameCoroutine");
     }
 
@@ -60,8 +66,11 @@ public class MenuControl : MonoBehaviour {
 
     IEnumerator ActivateButtons()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
+        audioSource.Play();
+
+        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < transform.childCount; ++i)
         {

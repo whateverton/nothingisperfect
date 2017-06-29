@@ -32,7 +32,7 @@ public class ButtonGenerator : MonoBehaviour {
 
     IEnumerator CreateSentence()
     {
-        while (true)
+        while (!GameControl.instance.gameOver)
         {
             GameObject currentSentence = SentencePool.instance.ActivateObject();
             currentSentence.GetComponent<SentenceObject>().ActivateSentence();

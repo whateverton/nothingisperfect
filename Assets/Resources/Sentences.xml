@@ -6,25 +6,24 @@
   <se0002 type="0">I don't have a car</se0002>
   <se0003 type="0">Did you bought some fruits?</se0003>
   <se0004 type="0">I know everything!</se0004>
+  <se0005 type="0">This is so annoying</se0005>
   
-  <s0001 type="1">I have invented a sentence</s0001>
-  <s0002 type="1">I have thought about it for two hours.</s0002>
-  <s0003 type="1">You have been sick since last week.</s0003>
-  <s0004 type="1">Since when have you been sick?</s0004>
-  <s0005 type="1">I have not been quite myself since the accident.</s0005>
-  <s0006 type="1">Kelly has had cats since I can remember.</s0006>
-  <s0007 type="1">Sophie has always loved shopping.</s0007>
-  <s0008 type="1">Taylor has lived here since 1992.</s0008>
+  <s0001 type="1">I've lost my passpost</s0001>
+  <s0002 type="1">Linda has gone to bed</s0002>
+  <s0003 type="1">We've bought a new car</s0003>
+  <s0004 type="1">It's Rachel birthday tomorrow and I haven't bought her a presente</s0004>
+  <s0005 type="1">Where has Bob gone in his vacation?</s0005>
+  <s0006 type="1">Can I take this newspaper? Have you finished with it?</s0006>
+  <s0007 type="1">He has cleaned his shoes</s0007>
+  <s0008 type="1">I have finished my homework</s0008>
 
   
   <s0009 type="2">I have just given up</s0009>
-  <s0009 type="2">I have just sold the last one.</s0009>
-  <s0010 type="2">Sue has broken the glass.</s0010>
-  <s0011 type="2">How has she done it?</s0011>
+  <s0010 type="2">I have just sold the last one.</s0010>
+  <s0011 type="2">The film has just started</s0011>
   <s0012 type="2">Mom has just found out about it, and she is not pleased.</s0012>
-  <s0013 type="2">They have already won. Let's go home.</s0013>
-  <s0014 type="2">I have made a special dish just for you.</s0014>
-  <s0015 type="2">She hasn't finished her homework yet.</s0015>
+  <s0014 type="2">They have just arrived</s0014>
+  <s0015 type="2">She has just finished her homework.</s0015>
   
   
   <s0016 type="3">How many times have you been to Tokyo?</s0016>
@@ -34,7 +33,6 @@
   <s0020 type="3">They have never eaten there before.</s0020>
   <s0021 type="3">You have changed so much!</s0021>
   <s0022 type="3">I haven't changed one bit.</s0022>
-  <s0023 type="3">She hasn't found the time yet.</s0023>
   <s0024 type="3">We have seen this movie ten times.</s0024>
   <s0025 type="3">I don't believe we have met. My name is David.</s0025>
   <s0026 type="3">Have you cleaned your room yet?</s0026>

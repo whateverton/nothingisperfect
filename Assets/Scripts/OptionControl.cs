@@ -6,6 +6,8 @@ using DG.Tweening;
 public class OptionControl : MonoBehaviour {
     public float interval;
 
+    public SentenceType type;
+
     private GameObject[] options;
     private float[] finalPosistion;
     private float initialPos;
@@ -38,14 +40,14 @@ public class OptionControl : MonoBehaviour {
 
 	public void OptionSelected(int type)
     {
-        switch ((SentenceType)type)
+        if((SentenceType)type == this.type)
         {
-            case SentenceType.CORRECT_1:
-            break;
-            case SentenceType.CORRECT_2:
-            break;
-            case SentenceType.CORRECT_3:
-            break;
+            GameControl.instance.IncreaseScore();
+            ++GameControl.instance.fullRight;
+        }
+        else
+        {
+            ++GameControl.instance.wrongCategory;
         }
 
         options[0].transform.DOLocalMoveY(initialPos, interval).SetEase(Ease.InBounce);
